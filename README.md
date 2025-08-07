@@ -4,7 +4,7 @@ A comprehensive network mapping tool that scans IP ranges to discover devices, d
 
 ## Features
 
-### Local Scan Mode (Detailed Analysis)
+### Local Scan Mode (Detailed Analysis) - **Requires nmap**
 - **Deep Protocol Analysis**: Identifies HTTP, HTTPS, SSH, FTP, SMTP, DNS, MySQL, PostgreSQL, RDP, and more
 - **Application Fingerprinting**: Detects specific applications and services running on devices
 - **Operating System Detection**: Uses nmap OS detection and TTL analysis
@@ -13,7 +13,7 @@ A comprehensive network mapping tool that scans IP ranges to discover devices, d
 - **Service Enumeration**: Comprehensive port scanning with service identification
 - **Response Time Analysis**: Measures network latency and performance metrics
 
-### Network Discovery Mode (Rogue Device Detection)
+### Network Discovery Mode (Rogue Device Detection) - **No nmap required**
 - **Fast Network Discovery**: Quick scanning for device enumeration
 - **MAC Address Analysis**: Identifies device manufacturers from MAC addresses with comprehensive vendor database
 - **Rogue Device Detection**: Finds unauthorized devices on the network
@@ -37,6 +37,13 @@ A comprehensive network mapping tool that scans IP ranges to discover devices, d
 - Python 3.8+
 - pip
 - Virtual environment (recommended)
+
+### Scan Timing Factors
+- **Network Size**: Larger networks take proportionally longer
+- **Network Speed**: Faster networks complete scans quicker
+- **Device Response**: Some devices may be slow to respond
+- **nmap vs Discovery**: Discovery mode is 5-10x faster than detailed local scans
+- **Concurrent Scans**: Multiple devices are scanned simultaneously for efficiency
 
 ### Cross-Platform Setup
 
@@ -114,33 +121,37 @@ python network_mapper.py --target 192.168.1.0/24
 - **json**: Machine-readable JSON
 - **csv**: Comma-separated values
 
-### Local Scan Mode (Detailed Analysis)
+### Local Scan Mode (Detailed Analysis) - **Requires nmap**
+**Typical Duration**: 2-5 minutes for a /24 network (256 IPs)
+
 ```bash
-# Detailed local scan with OS detection
+# Detailed local scan with OS detection (requires nmap)
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed
 
-# Generate HTML report
+# Generate HTML report (requires nmap)
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed --output html
 
-# Generate JSON report for automation
+# Generate JSON report for automation (requires nmap)
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed --output json
 
-# Custom timeout (60 seconds)
+# Custom timeout (60 seconds, requires nmap)
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed --timeout 60
 ```
 
-### Network Discovery Mode (Rogue Device Detection)
+### Network Discovery Mode (Rogue Device Detection) - **No nmap required**
+**Typical Duration**: 30 seconds - 2 minutes for a /24 network (256 IPs)
+
 ```bash
-# Quick discovery scan
+# Quick discovery scan (no nmap required)
 python network_mapper.py --mode discovery --target 10.0.0.0/8 --quick
 
-# Discovery scan with CSV output
+# Discovery scan with CSV output (no nmap required)
 python network_mapper.py --mode discovery --target 192.168.1.0/24 --output csv
 
-# Generate HTML report for discovery
+# Generate HTML report for discovery (no nmap required)
 python network_mapper.py --mode discovery --target 192.168.1.0/24 --output html
 
-# Custom configuration file
+# Custom configuration file (no nmap required)
 python network_mapper.py --mode discovery --target 192.168.1.0/24 --config custom_config.yaml
 ```
 

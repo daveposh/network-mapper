@@ -185,9 +185,16 @@ def main(mode: str, target: str, detailed: bool, quick: bool,
     """Network Mapper - Comprehensive network discovery tool
     
     EXAMPLES:
+        # Discovery scan (no nmap required) - ~30s-2min for /24
         python network_mapper.py --target 192.168.1.0/24
+        
+        # Detailed local scan (requires nmap) - ~2-5min for /24
         python network_mapper.py --mode local --target 192.168.1.0/24 --detailed
+        
+        # HTML report (no nmap required)
         python network_mapper.py --target 192.168.1.0/24 --output html
+        
+        # JSON output (no nmap required)
         python network_mapper.py --target 192.168.1.0/24 --output json
     """
     
