@@ -1,0 +1,35 @@
+# Core networking and scanning
+python-nmap==0.7.1
+scapy==2.5.0
+
+# Network analysis and fingerprinting
+requests==2.31.0
+dnspython==2.4.2
+
+# MAC address and manufacturer lookup
+mac-vendors==0.0.5
+macaddress==2.0.2
+
+# CLI and argument parsing
+click==8.1.7
+rich==13.7.0
+tqdm==4.66.1
+
+# Output formatting
+jinja2==3.1.2
+markdown==3.5.1
+
+# Async support for performance
+aiohttp==3.9.1
+
+# Configuration and settings
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# Logging and debugging
+colorlog==6.8.0
+structlog==23.2.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1 
