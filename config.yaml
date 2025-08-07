@@ -1,0 +1,30 @@
+# Network Mapper Configuration
+
+# Scan settings
+timeout: 30
+max_concurrent_scans: 10
+retry_attempts: 3
+
+# Network settings
+default_ports: [21, 22, 23, 25, 53, 80, 110, 143, 443, 993, 995, 3306, 3389, 5432, 8080, 8443]
+
+# Detailed scan settings
+detailed_scan_ports: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 53, 80, 110, 143, 443, 993, 995, 3306, 3389, 5432, 8080, 8443]
+service_detection: true
+os_detection: true
+protocol_analysis: true
+
+# Discovery scan settings
+quick_scan_ports: [21, 22, 23, 25, 53, 80, 110, 143, 443, 993, 995, 3306, 3389, 5432, 8080, 8443]
+
+# MAC address lookup
+mac_lookup_enabled: true
+mac_database_path: null
+
+# Output settings
+output_directory: "reports"
+log_level: "INFO"
+
+# Performance settings
+async_timeout: 10
+connection_pool_size: 100 
