@@ -134,10 +134,12 @@ class DeviceClassifier:
                     score += 3
             
             # Pattern matching in hostname/banner
-            hostname = device.get('hostname', '').lower()
-            for pattern_str in pattern['patterns']:
-                if pattern_str in hostname:
-                    score += 5
+            hostname = device.get('hostname', '')
+            if hostname:
+                hostname = hostname.lower()
+                for pattern_str in pattern['patterns']:
+                    if pattern_str in hostname:
+                        score += 5
             
             device_score[device_type] = score
         

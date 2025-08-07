@@ -62,15 +62,18 @@ Write-Host "🎉 Installation completed successfully!" -ForegroundColor Green
 Write-Host ""
 Write-Host "To use Network Mapper:" -ForegroundColor Cyan
 Write-Host "1. Activate the virtual environment: venv\Scripts\Activate.ps1" -ForegroundColor White
-Write-Host "2. Run a scan: python network_mapper.py --mode discovery --target 192.168.1.0/24" -ForegroundColor White
+Write-Host "2. Run a scan: python network_mapper.py --target 192.168.1.0/24" -ForegroundColor White
 Write-Host ""
 Write-Host "Example commands:" -ForegroundColor Cyan
-Write-Host "  # Discovery scan" -ForegroundColor White
-Write-Host "  python network_mapper.py --mode discovery --target 192.168.1.0/24" -ForegroundColor White
+Write-Host "  # Basic discovery scan" -ForegroundColor White
+Write-Host "  python network_mapper.py --target 192.168.1.0/24" -ForegroundColor White
 Write-Host ""
 Write-Host "  # Detailed local scan" -ForegroundColor White
 Write-Host "  python network_mapper.py --mode local --target 192.168.1.0/24 --detailed" -ForegroundColor White
 Write-Host ""
 Write-Host "  # Generate HTML report" -ForegroundColor White
-Write-Host "  python network_mapper.py --mode discovery --target 192.168.1.0/24 --output html" -ForegroundColor White
+Write-Host "  python network_mapper.py --target 192.168.1.0/24 --output html" -ForegroundColor White
+Write-Host ""
+Write-Host "  # JSON output for automation" -ForegroundColor White
+Write-Host "  python network_mapper.py --target 192.168.1.0/24 --output json" -ForegroundColor White
 Write-Host "" 

@@ -182,7 +182,14 @@ class NetworkMapper:
 @click.option('--config', type=click.Path(exists=True), help='Configuration file path')
 def main(mode: str, target: str, detailed: bool, quick: bool, 
          output: str, timeout: int, config: Optional[str]):
-    """Network Mapper - Comprehensive network discovery tool"""
+    """Network Mapper - Comprehensive network discovery tool
+    
+    EXAMPLES:
+        python network_mapper.py --target 192.168.1.0/24
+        python network_mapper.py --mode local --target 192.168.1.0/24 --detailed
+        python network_mapper.py --target 192.168.1.0/24 --output html
+        python network_mapper.py --target 192.168.1.0/24 --output json
+    """
     
     try:
         # Load configuration

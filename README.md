@@ -21,6 +21,7 @@ A comprehensive network mapping tool that scans IP ranges to discover devices, d
 - **Network Topology Mapping**: Creates network maps and device relationships
 - **Manufacturer Database**: Built-in MAC address vendor lookup with API fallback and local database
 - **Cross-Platform MAC Collection**: Optimized MAC address collection for macOS, Linux, and Windows
+- **Comprehensive Vendor Support**: Apple, Dell, Cisco, TP-Link, Google, Amazon, NVIDIA, Realtek, ASUS, Gigabyte, MSI, Brother, ESP32, and more
 
 ### Advanced Capabilities
 - **Multi-format Output**: JSON, CSV, HTML, and console output formats
@@ -88,20 +89,44 @@ pip install -r requirements.txt
 # Activate virtual environment
 source venv/bin/activate
 
-# Run a discovery scan
-python network_mapper.py --mode discovery --target 192.168.1.0/24
+# Basic network discovery
+python network_mapper.py --target 192.168.1.0/24
 ```
+
+### Command Line Options
+- `--mode`: Scan mode (local/discovery) - default: discovery
+- `--target`: Target IP range (CIDR notation) - required
+- `--detailed`: Enable detailed scanning (local mode)
+- `--quick`: Enable quick scanning (discovery mode)
+- `--output`: Output format (json/csv/html/console) - default: console
+- `--timeout`: Scan timeout in seconds - default: 30
+- `--config`: Configuration file path
+
+### Target Formats
+- **Single IP**: `192.168.1.100`
+- **CIDR Range**: `192.168.1.0/24`
+- **Multiple IPs**: `192.168.1.1,192.168.1.100,192.168.1.254`
+- **IP Range**: `192.168.1.1-192.168.1.254`
+
+### Output Formats
+- **console**: Rich formatted table (default)
+- **html**: Interactive HTML report
+- **json**: Machine-readable JSON
+- **csv**: Comma-separated values
 
 ### Local Scan Mode (Detailed Analysis)
 ```bash
-# Detailed local scan with deep analysis
+# Detailed local scan with OS detection
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed
 
 # Generate HTML report
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed --output html
 
-# Generate JSON report
+# Generate JSON report for automation
 python network_mapper.py --mode local --target 192.168.1.0/24 --detailed --output json
+
+# Custom timeout (60 seconds)
+python network_mapper.py --mode local --target 192.168.1.0/24 --detailed --timeout 60
 ```
 
 ### Network Discovery Mode (Rogue Device Detection)
@@ -111,16 +136,13 @@ python network_mapper.py --mode discovery --target 10.0.0.0/8 --quick
 
 # Discovery scan with CSV output
 python network_mapper.py --mode discovery --target 192.168.1.0/24 --output csv
-```
 
-### Command Line Options
-- `--mode`: Scan mode (local/discovery)
-- `--target`: Target IP range (CIDR notation)
-- `--detailed`: Enable detailed scanning (local mode)
-- `--quick`: Enable quick scanning (discovery mode)
-- `--output`: Output format (json/csv/html/console)
-- `--timeout`: Scan timeout in seconds
-- `--config`: Configuration file path
+# Generate HTML report for discovery
+python network_mapper.py --mode discovery --target 192.168.1.0/24 --output html
+
+# Custom configuration file
+python network_mapper.py --mode discovery --target 192.168.1.0/24 --config custom_config.yaml
+```
 
 ### Example Scenarios
 
